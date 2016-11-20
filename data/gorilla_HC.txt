@@ -1,4 +1,4 @@
-	EA.1	EA.2	EA.3	SAT.1	SAT.2	MBI.1	MBI.2	MBI.3	MBI.4	Door.1	Chocolate	Gender
+ID	EA.1	EA.2	EA.3	SAT.1	SAT.2	MBI.1	MBI.2	MBI.3	MBI.4	Door.1	Chocolate	Gender
 1	나	나	가	15	가	16	가	나	나	가	4	m	
 2	가	나	다	11	나	16	가	나	나	가	5	NA	
 3	가	나	가	15	가	14	가	가	나	가	5	NA
