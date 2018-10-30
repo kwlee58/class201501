@@ -153,6 +153,17 @@ str(gorilla)
 ##  $ gender   : Factor w/ 2 levels "f","m": 2 NA NA NA 2 NA NA NA 2 2 ...
 ```
 
+```r
+gorilla$monkey <-factor(gorilla$Q_1, levels = c("가", "나", "다"), labels = c("원숭이-바나나", "원숭이-팬더", "팬더-바나나"))
+gorilla$leader<-factor(gorilla$Q_2, levels = c("가", "나"), labels = c("여전히 행복하다", "행복하지 않다"))
+gorilla$saucer<-factor(gorilla$Q_3, levels = c("가", "나", "다"), labels = c("맨 위", "중간", "맨 아래"))
+gorilla$satQ_2 <- factor(gorilla$satQ_2, labels = c("Yes", "No"))
+gorilla$mbiQ_2 <- factor(gorilla$mbiQ_2, labels = c("Yes", "No"))
+gorilla$mbiQ_3 <- factor(gorilla$mbiQ_3, labels = c("Yes", "No"))
+gorilla$mbiQ_4 <- factor(gorilla$mbiQ_4, labels = c("Yes", "No"))
+gorilla$satQ_1.2 <- factor(ifelse(gorilla$satQ_1 == 15, "15", "not 15"))
+gorilla$mbiQ_1.2 <- factor(ifelse(gorilla$mbiQ_1 == 16, "16", "not 16"))
+```
 
 계산 편의를 위하여 `gorilla`를 검색 목록에 등록하고 소숫점 이하 자릿수 조정.
 
@@ -687,6 +698,65 @@ options(digits=2)
 <td align="left">not 16</td>
 <td align="right">0.00</td>
 <td align="right">1.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="chocolate" class="section level3">
+<h3>Chocolate</h3>
+<pre class="r"><code>kable(t(as.matrix(table(chocolate), 1)))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+<th align="right">6</th>
+<th align="right">10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">14</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>pander(summary(chocolate))</code></pre>
+<table style="width:68%;">
+<colgroup>
+<col width="9%"></col>
+<col width="13%"></col>
+<col width="12%"></col>
+<col width="9%"></col>
+<col width="13%"></col>
+<col width="8%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">Min.</th>
+<th align="right">1st Qu.</th>
+<th align="right">Median</th>
+<th align="right">Mean</th>
+<th align="right">3rd Qu.</th>
+<th align="right">Max.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">4.25</td>
+<td align="right">5</td>
+<td align="right">4.73</td>
+<td align="right">5</td>
+<td align="right">10</td>
 </tr>
 </tbody>
 </table>

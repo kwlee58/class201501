@@ -27,7 +27,6 @@ gorilla <- read.table("../data/gorilla_HC.txt", header = TRUE, sep = "")
 names(gorilla) <- c("ID", "Q_1", "Q_2", "Q_3", "satQ_1", "satQ_2", "mbiQ_1", "mbiQ_2", "mbiQ_3", "mbiQ_4", "doorQ_1", "chocolate", "gender")
 # load("gorilla.rda")
 str(gorilla)
-```{r, echo = FALSE}
 gorilla$monkey <-factor(gorilla$Q_1, levels = c("가", "나", "다"), labels = c("원숭이-바나나", "원숭이-팬더", "팬더-바나나"))
 gorilla$leader<-factor(gorilla$Q_2, levels = c("가", "나"), labels = c("여전히 행복하다", "행복하지 않다"))
 gorilla$saucer<-factor(gorilla$Q_3, levels = c("가", "나", "다"), labels = c("맨 위", "중간", "맨 아래"))
@@ -37,8 +36,6 @@ gorilla$mbiQ_3 <- factor(gorilla$mbiQ_3, labels = c("Yes", "No"))
 gorilla$mbiQ_4 <- factor(gorilla$mbiQ_4, labels = c("Yes", "No"))
 gorilla$satQ_1.2 <- factor(ifelse(gorilla$satQ_1 == 15, "15", "not 15"))
 gorilla$mbiQ_1.2 <- factor(ifelse(gorilla$mbiQ_1 == 16, "16", "not 16"))
-
-
 ```
 
 계산 편의를 위하여 `gorilla`를 검색 목록에 등록하고 소숫점 이하 자릿수 조정.
@@ -57,8 +54,6 @@ kable(t(as.matrix(table(leader), 1)))
 kable(t(as.matrix(table(saucer), 1)))
 kable(table(saucer, monkey))
 ```
-
-
 
 ### Selective Attention
 
@@ -126,6 +121,12 @@ kable(addmargins(table("패스성공횟수" = mbiQ_1.2, "선수 퇴장?" = mbiQ_
 kable(prop.table(table("패스성공횟수" = mbiQ_1.2, "선수 퇴장?" = mbiQ_4), margin = 1))
 ```
 
+### Chocolate 
+
+```{r, chocolate}
+kable(t(as.matrix(table(chocolate), 1)))
+pander(summary(chocolate))
+```
 ### Save
 
 ```{r, save}
